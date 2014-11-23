@@ -1,3 +1,4 @@
+/* C program for traversing linked list in reverse */
 #include<stdio.h>
 struct node
 	{
