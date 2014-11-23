@@ -1,3 +1,10 @@
+/* Create an employee structure which contain 4 fields such as 
+   eno,ename,edesg and esal
+   create a file called emp.txt which contains 10 records in this format
+   example:   1, Adam,SE,11000
+   Find the records whose salaries are above 10000 and less than 10000 and store them
+    in max.txt and min.txt respectivly. */
+
 #include<stdio.h>
 #include<string.h>
 struct emp
