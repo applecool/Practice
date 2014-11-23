@@ -1,3 +1,4 @@
+/* C program to merge two linked lists */
 #include<stdio.h>
 #include<stdlib.h>
 struct node
