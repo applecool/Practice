@@ -20,5 +20,18 @@ characters2morse = {
  }
 
 
+ def convertmorse(input_str):
+     for word in input_str.strip().upper().split():
+         for char in word:
+             for ele in characters2morse.get(char, '?'):
+                 if ele == '-':
+                     #callfunction()
+                 elif ele == '.':
+                     #callfunction()
+                 else:
+                     #callfunction()
+
+
+
 while True:
     convertmorse(input('A string to change into morse code'))
