@@ -47,11 +47,13 @@ def bloop(n=3):
          for char in word:
              for ele in characters2morse.get(char, '?'):
                  if ele == '-':
-                     #callfunction()
+                     dah() #callfunction()
                  elif ele == '.':
-                     #callfunction()
+                     dit() #callfunction()
                  else:
-                     #callfunction()
+                     bloop() #callfunction()
+                gap(char_gap)
+            gap(word_gap)
 
 
 
