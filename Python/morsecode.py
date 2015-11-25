@@ -1,3 +1,4 @@
+import time, winsound #, sys
 
 #initial steps
 characters2morse = {
@@ -19,6 +20,27 @@ characters2morse = {
           "[": "-.--.",      "]": "-.--.-",     "_": "..--.-",
  }
 
+
+e_time = 50     # Element time in milli sec.
+freq = 1280     # Tone freq. in hertz
+char_gap = 1    # Time between characters of a word, in units of e_time
+word_gap = 7    # Time between words, in units of e_time
+
+def gap(n=1):
+    time.sleep(n * e_time / 1000)
+off = gap
+
+def on(n=1):
+    winsound.Beep(freq, n * e_time)
+
+def dit():
+    on(); off()
+
+def dah():
+    on(3); off()
+
+def bloop(n=3):
+    winsound.Beep(freq//2, n * e_time)
 
  def convertmorse(input_str):
      for word in input_str.strip().upper().split():
