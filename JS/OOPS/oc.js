@@ -29,7 +29,6 @@ vehicle1["# of weapons"] = 1;
 vehicle2["# of weapons"] = 4;
 vehicle3["# of weapons"] = 8;
 
-//bulbs - array
 var superBlinders = [
   ["Firelight", 4000],
   ["Solar Death Ray", 6000],
@@ -38,15 +37,22 @@ var superBlinders = [
 
 var lighthouseRock = {
   gateClosed: true,
-  bulbs: [200, 500, 750],
+  weaponBulbs: superBlinders,
   capacity: 30,
-  secretPassageTo: "Underwater Outpost"
+  secretPassageTo: "Underwater Outpost",
+  numRangers: 0
 };
 
-// removing bulbs property from lighthouseRock
-delete lighthouseRock.bulbs;
+function addRanger(location, name, skillz, station) {
+  location.numRangers++;
+  location["ranger"+location.numRangers] ={
+    name: name,
+    skillz: skillz,
+    station: station
+  };
 
-// adding weaponBulbs property to lighthouseRock
-lighthouseRock.weaponBulbs = superBlinders;
+}
 
-console.log(lighthouseRock.weaponBulbs[2][0]);
+addRanger(lighthouseRock, "Rudy", "magnification burn", 2);
+addRanger(lighthouseRock, "Jack", "uppercut launch", 3);
+addRanger(lighthouseRock, "Rey", "bomb defusing", 1);
