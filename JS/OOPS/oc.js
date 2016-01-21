@@ -44,9 +44,19 @@ var lighthouseRock = {
   ranger1: {name: "Rudy", skills: "magnification burn", station: 2},
   ranger2: {name: "Jack", skills: "uppercut launch", station: 3},
   ranger3: {name: "Rey", skills: "bomb defusing", station: 1}
+
+  //modified addRangerFunction
+  addRanger:function(name, skills, station) {
+    this.numRangers++;
+    this["ranger" + this.numRangers] = {
+      name: name,
+      skills: skills,
+      station: station
+ };
+}
 };
 
-function addRanger(location, name, skills, station) {
+/*function addRanger(location, name, skills, station) {
   location.numRangers++;
   location["ranger"+location.numRangers] ={
     name: name,
@@ -54,7 +64,7 @@ function addRanger(location, name, skills, station) {
     station: station
   };
 
-}
+}*/
 
 addRanger(lighthouseRock, "Rudy", "magnification burn", 2);
 addRanger(lighthouseRock, "Jack", "uppercut launch", 3);
@@ -73,4 +83,14 @@ function dontPanic(location) {
   }
 
   alert(list);
+
+  //adding weaponBulbs
+  lighthouseRock.addBulb = function(name, wattage){
+	this.weaponBulbs.push([name,wattage]);
+  };
+
+  lighthouseRock.addBulb("Blasterbright",5000);
+  lighthouseRock.addBulb("Sight Slayer",1800);
+  lighthouseRock.addBulb("Burner of Souls",7500);
+  
 }
