@@ -1,15 +1,27 @@
 // Take on Pirates
 
-var vehicle1 = {type: "Motorboat", capacity: 6, storedAt: "Ammunition Depot"};
-var vehicle2 = {type: "Jet Ski", capacity: 1, storedAt: "Reef Dock"};
-var vehicle3 = {type: "Submarine", capacity: 8, storedAt: "Underwater Outpost"};
+var vehicle1 = {
+  type: "Motorboat",
+  capacity: 6,
+  storedAt: "Ammunition Depot"
+};
+var vehicle2 = {
+  type: "Jet Ski",
+  capacity: 1,
+  storedAt: "Reef Dock"
+};
+var vehicle3 = {
+  type: "Submarine",
+  capacity: 8,
+  storedAt: "Underwater Outpost"
+};
 
 var vehicles = [vehicle1, vehicle2, vehicle3];
 
-var findVehicle= function(name, list){
-  for(var i = 0; i <list.length; i++){
-    if(list[i].type == name ){
-    	return list[i].storedAt;
+var findVehicle = function(name, list) {
+  for (var i = 0; i < list.length; i++) {
+    if (list[i].type == name) {
+      return list[i].storedAt;
     }
   }
 };
@@ -41,19 +53,31 @@ var lighthouseRock = {
   capacity: 30,
   secretPassageTo: "Underwater Outpost",
   numRangers: 3,
-  ranger1: {name: "Rudy", skills: "magnification burn", station: 2},
-  ranger2: {name: "Jack", skills: "uppercut launch", station: 3},
-  ranger3: {name: "Rey", skills: "bomb defusing", station: 1}
+  ranger1: {
+    name: "Rudy",
+    skills: "magnification burn",
+    station: 2
+  },
+  ranger2: {
+    name: "Jack",
+    skills: "uppercut launch",
+    station: 3
+  },
+  ranger3: {
+    name: "Rey",
+    skills: "bomb defusing",
+    station: 1
+  }
 
   //modified addRangerFunction
-  addRanger:function(name, skills, station) {
+  addRanger: function(name, skills, station) {
     this.numRangers++;
     this["ranger" + this.numRangers] = {
       name: name,
       skills: skills,
       station: station
- };
-}
+    };
+  }
 };
 
 /*function addRanger(location, name, skills, station) {
@@ -72,25 +96,25 @@ addRanger(lighthouseRock, "Rey", "bomb defusing", 1);
 
 function dontPanic(location) {
   var list = "Avast, me hearties!\n" +
-             "There be Pirates nearby! Stations!\n";
+    "There be Pirates nearby! Stations!\n";
 
   // loop through the rangers and append to list
   for (var i = 1; i <= location.numRangers; i++) {
-    var ranger = location["ranger"+i];
+    var ranger = location["ranger" + i];
     var name = ranger.name;
-    var superblinder = location.weaponBulbs[ranger.station-1][0];
+    var superblinder = location.weaponBulbs[ranger.station - 1][0];
     list += name + ", man the " + superblinder + "!\n";
   }
 
   alert(list);
 
   //adding weaponBulbs
-  lighthouseRock.addBulb = function(name, wattage){
-	this.weaponBulbs.push([name,wattage]);
+  lighthouseRock.addBulb = function(name, wattage) {
+    this.weaponBulbs.push([name, wattage]);
   };
 
-  lighthouseRock.addBulb("Blasterbright",5000);
-  lighthouseRock.addBulb("Sight Slayer",1800);
-  lighthouseRock.addBulb("Burner of Souls",7500);
-  
+  lighthouseRock.addBulb("Blasterbright", 5000);
+  lighthouseRock.addBulb("Sight Slayer", 1800);
+  lighthouseRock.addBulb("Burner of Souls", 7500);
+
 }
