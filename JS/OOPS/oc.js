@@ -28,3 +28,25 @@ vehicle3.submersible = true;
 vehicle1["# of weapons"] = 1;
 vehicle2["# of weapons"] = 4;
 vehicle3["# of weapons"] = 8;
+
+//bulbs - array
+var superBlinders = [
+  ["Firelight", 4000],
+  ["Solar Death Ray", 6000],
+  ["Supernova", 12000]
+];
+
+var lighthouseRock = {
+  gateClosed: true,
+  bulbs: [200, 500, 750],
+  capacity: 30,
+  secretPassageTo: "Underwater Outpost"
+};
+
+// removing bulbs property from lighthouseRock
+delete lighthouseRock.bulbs;
+
+// adding weaponBulbs property to lighthouseRock
+lighthouseRock.weaponBulbs = superBlinders;
+
+console.log(lighthouseRock.weaponBulbs[2][0]);
