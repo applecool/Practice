@@ -43,11 +43,11 @@ var lighthouseRock = {
   numRangers: 0
 };
 
-function addRanger(location, name, skillz, station) {
+function addRanger(location, name, skills, station) {
   location.numRangers++;
   location["ranger"+location.numRangers] ={
     name: name,
-    skillz: skillz,
+    skills: skills,
     station: station
   };
 
