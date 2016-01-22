@@ -150,11 +150,25 @@ var rockSpearguns = {
 };
 
 //listGuns
-var listGuns = function(guns){
+/*var listGuns = function(guns){
   for (speargun in guns){
   	console.log(speargun);
+    console.log("Behold! "+speargun+", with "+guns[speargun].heft+" heft!");
+}
   }
 };
 
 //summon listGuns
-listGuns(rockSpearguns);
+listGuns(rockSpearguns);*/
+
+//listGuns with this reference 
+rockSpearguns["listGuns"] = function() {
+  for (var property in this) {
+    if (this[property]["heft"] != undefined) {
+      console.log("Behold! " + property + ", with " +
+                  this[property]["heft"] + " heft!");
+    }
+  }
+};
+
+rockSpearguns["listGuns"]();
