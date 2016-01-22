@@ -1,4 +1,4 @@
-//finding the number of cattle based on their type!
+//Cattle Trouble problem
 
 Array.prototype.countCattle = function(kind) {
   var numKind = 0;
@@ -8,6 +8,24 @@ Array.prototype.countCattle = function(kind) {
     }
   }
   return numKind;
+};
+
+Object.prototype.noCalvesYet = function(){
+  if(this.type == "cow" && this.hadCalf == null){
+  	return true;
+  }else{
+  	return false;
+  }
+};
+
+Array.prototype.countForBreeding = function(){
+	var numToBreed = 0;
+   for (var i = 0; i < this.length; i++) {
+    if (this[i].noCalvesYet()) {
+      numToBreed++;
+    }
+   }
+  return numToBreed;
 };
 
 var canyonCows = [
@@ -37,4 +55,19 @@ var forestCows = [
   {name: "Eowyn", type: "cow", hadCalf: "Legolas"}
 ];
 
+var badlandsCows = [
+  {name: "Voldemort", type: "bull", hadCalf: null},
+  {name: "Maleficent", type: "cow", hadCalf: null},
+  {name: "Ursula", type: "cow", hadCalf: "Draco"},
+  {name: "Draco", type: "calf", hadCalf: null},
+  {name: "Joker", type: "bull", hadCalf: null},
+  {name: "Chucky", type: "calf", hadCalf: null},
+  {name: "Samara", type: "cow", hadCalf: "Chucky"}
+];
+
 alert(canyonCows.countCattle("calf") + valleyCows.countCattle("bull")+forestCows.countCattle("cow"));
+
+var numPriorityCows = canyonCows.countForBreeding() +
+valleyCows.countForBreeding() + forestCows.countForBreeding() + badlandsCows.countForBreeding();
+
+alert("Herd-merger has indicated "+numPriorityCows+" cows of top breeding priority.");
