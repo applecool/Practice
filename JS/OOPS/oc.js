@@ -1,4 +1,4 @@
-// Take on Pirates
+// Take on the Pirates
 
 var vehicle1 = {
   type: "Motorboat",
@@ -140,3 +140,21 @@ var relieveDuty = function(vehicle, day){
 };
 
 var offToday = relieveDuty(vehicle3, "Friday");
+
+var rockSpearguns = {
+  Sharpshooter: {barbs: 2, weight: 10, heft: "overhand"},
+  Pokepistol: {barbs: 4, weight: 8, heft: "shoulder"},
+  Javelinjet: {barbs: 4, weight: 12, heft: "waist"},
+  Firefork: {barbs: 6, weight: 8, heft: "overhand"},
+  "The Impaler": {barbs: 1, weight: 30, heft: "chest"}
+};
+
+//listGuns
+var listGuns = function(guns){
+  for (speargun in guns){
+  	console.log(speargun);
+  }
+};
+
+//summon listGuns
+listGuns(rockSpearguns);
