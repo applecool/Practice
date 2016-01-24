@@ -25,7 +25,18 @@ Fencepost.prototype = {
     this.x = x;
     this.y = y;
   };
+  valueOf : function(){
+	return Math.sqrt(this.x*this.x + this.y*this.y);
 }
+
+Fencepost.prototype.toString = function(){
+	var list = "";
+  for(var i = 0; i< this.connectionsTo.length; i++){
+  	list+= connectionsTo[i].postNum +"\n";
+  }
+  return "Fence post #"+this.postNum+":\n"+"Connected to posts:\n"+list+"Distance from ranch: "+this.valueOf()+" yards";
+
+};
 
 var post18 = new Fencepost(-3, 4, 18);
 var post19 = new Fencepost(5, -1, 19);
