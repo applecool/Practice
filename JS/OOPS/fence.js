@@ -3,11 +3,29 @@ function Fencepost(x, y, postNum) {
   this.y = y;
   this.postNum = postNum;
   this.connectionsTo = [];
-  this.sendRopeTo = function(connectedPost) {
-    this.connectionsTo.push(connectedPost);
-  };
+
 }
 
+Fencepost.prototype = {
+
+  sendRopeTo:function(connectedPost) {
+    this.connectionsTo.push(connectedPost);
+  },
+
+  removeRope:function(removeTo) {
+    var temp = [];
+    for (var i = 0; i < this.connectionsTo.length; i++) {
+      if (this.connectionsTo[i].postNum != removeTo) {
+        temp.push(this.connectionsTo[i]);
+      }
+    }
+    this.connectionsTo = temp;
+  },
+  movePost:function(x, y) {
+    this.x = x;
+    this.y = y;
+  };
+}
 
 var post18 = new Fencepost(-3, 4, 18);
 var post19 = new Fencepost(5, -1, 19);
