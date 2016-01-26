@@ -119,22 +119,22 @@ function dontPanic(location) {
 
 }
 //function to calculate the rangers on or off duty
-var relieveDuty = function(vehicle, day){
-	var offDuty = [];
+var relieveDuty = function(vehicle, day) {
+  var offDuty = [];
   var onDuty = [];
 
-  for(var i = 1; i <=vehicle.numRangers; i++){
-    if(vehicle["ranger"+i].dayOff == day){
-    	offDuty.push(vehicle["ranger"+i]);
-    }else{
-    	onDuty.push(vehicle["ranger"+i]);
+  for (var i = 1; i <= vehicle.numRangers; i++) {
+    if (vehicle["ranger" + i].dayOff == day) {
+      offDuty.push(vehicle["ranger" + i]);
+    } else {
+      onDuty.push(vehicle["ranger" + i]);
     }
-    delete vehicle["ranger"+i];
+    delete vehicle["ranger" + i];
   }
   vehicle.numRangers -= offDuty.length;
 
   for (var j = 1; j <= vehicle.numRangers; j++) {
-    vehicle["ranger"+j] = onDuty.shift();
+    vehicle["ranger" + j] = onDuty.shift();
   }
   return offDuty;
 };
@@ -142,11 +142,31 @@ var relieveDuty = function(vehicle, day){
 var offToday = relieveDuty(vehicle3, "Friday");
 
 var rockSpearguns = {
-  Sharpshooter: {barbs: 2, weight: 10, heft: "overhand"},
-  Pokepistol: {barbs: 4, weight: 8, heft: "shoulder"},
-  Javelinjet: {barbs: 4, weight: 12, heft: "waist"},
-  Firefork: {barbs: 6, weight: 8, heft: "overhand"},
-  "The Impaler": {barbs: 1, weight: 30, heft: "chest"}
+  Sharpshooter: {
+    barbs: 2,
+    weight: 10,
+    heft: "overhand"
+  },
+  Pokepistol: {
+    barbs: 4,
+    weight: 8,
+    heft: "shoulder"
+  },
+  Javelinjet: {
+    barbs: 4,
+    weight: 12,
+    heft: "waist"
+  },
+  Firefork: {
+    barbs: 6,
+    weight: 8,
+    heft: "overhand"
+  },
+  "The Impaler": {
+    barbs: 1,
+    weight: 30,
+    heft: "chest"
+  }
 };
 
 //listGuns
@@ -161,12 +181,12 @@ var rockSpearguns = {
 //summon listGuns
 listGuns(rockSpearguns);*/
 
-//listGuns with this reference 
+//listGuns with this reference
 rockSpearguns["listGuns"] = function() {
   for (var property in this) {
     if (this[property]["heft"] != undefined) {
       console.log("Behold! " + property + ", with " +
-                  this[property]["heft"] + " heft!");
+        this[property]["heft"] + " heft!");
     }
   }
 };

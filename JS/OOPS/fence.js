@@ -8,42 +8,42 @@ function Fencepost(x, y, postNum) {
 
 Fencepost.prototype = {
 
-  sendRopeTo:function(connectedPost) {
-    this.connectionsTo.push(connectedPost);
-  },
+    sendRopeTo: function(connectedPost) {
+      this.connectionsTo.push(connectedPost);
+    },
 
-  removeRope:function(removeTo) {
-    var temp = [];
-    for (var i = 0; i < this.connectionsTo.length; i++) {
-      if (this.connectionsTo[i].postNum != removeTo) {
-        temp.push(this.connectionsTo[i]);
+    removeRope: function(removeTo) {
+      var temp = [];
+      for (var i = 0; i < this.connectionsTo.length; i++) {
+        if (this.connectionsTo[i].postNum != removeTo) {
+          temp.push(this.connectionsTo[i]);
+        }
       }
+      this.connectionsTo = temp;
+    },
+    movePost: function(x, y) {
+      this.x = x;
+      this.y = y;
+    };
+    valueOf: function() {
+      return Math.sqrt(this.x * this.x + this.y * this.y);
     }
-    this.connectionsTo = temp;
-  },
-  movePost:function(x, y) {
-    this.x = x;
-    this.y = y;
-  };
-  valueOf : function(){
-	return Math.sqrt(this.x*this.x + this.y*this.y);
-}
 
-Fencepost.prototype.toString = function(){
-	var list = "";
-  for(var i = 0; i< this.connectionsTo.length; i++){
-  	list+= connectionsTo[i].postNum +"\n";
-  }
-  return "Fence post #"+this.postNum+":\n"+"Connected to posts:\n"+list+"Distance from ranch: "+this.valueOf()+" yards";
+      Fencepost.prototype.toString = function() {
+      var list = "";
+      for (var i = 0; i < this.connectionsTo.length; i++) {
+        list += connectionsTo[i].postNum + "\n";
+      }
+      return "Fence post #" + this.postNum + ":\n" + "Connected to posts:\n" + list + "Distance from ranch: " + this.valueOf() + " yards";
 
-};
+    };
 
-var post18 = new Fencepost(-3, 4, 18);
-var post19 = new Fencepost(5, -1, 19);
-var post20 = new Fencepost(-2, 10, 20);
+    var post18 = new Fencepost(-3, 4, 18);
+    var post19 = new Fencepost(5, -1, 19);
+    var post20 = new Fencepost(-2, 10, 20);
 
 
-post18.sendRopeTo(post20);
-post20.sendRopeTo(post18);
-post18.sendRopeTo(post19);
-post19.sendRopeTo(post18);
+    post18.sendRopeTo(post20);
+    post20.sendRopeTo(post18);
+    post18.sendRopeTo(post19);
+    post19.sendRopeTo(post18);

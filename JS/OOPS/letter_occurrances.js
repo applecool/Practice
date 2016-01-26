@@ -1,10 +1,10 @@
 //function to count the number of letter occurrances in a given string.
 
 
-String.prototype.countLetters = function(letter){
+String.prototype.countLetters = function(letter) {
   var numLetters = 0;
-  for(var i =0; i< this.length; i++){
-    if(this.charAt(i).toUpperCase() == letter.toUpperCase()){
+  for (var i = 0; i < this.length; i++) {
+    if (this.charAt(i).toUpperCase() == letter.toUpperCase()) {
       numLetters++;
     }
   }
