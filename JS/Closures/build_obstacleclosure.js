@@ -15,6 +15,7 @@ function warningMaker(obstacle) {
       number + " have been spotted at the " +
       location + "!\n" +
       "This is alert #" + count +
+      
       " today for " + obstacle + " danger.\n" +
       // finish the warning message here
       "Current danger zones are:\n" + list

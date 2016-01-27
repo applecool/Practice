@@ -1,11 +1,11 @@
 //Trace the closure to find the end result
 
-function mystery(input){
+function mystery(input) {
   var secret = 5;
-  input +=2; // input = 5
+  input += 2; // input = 5
 
-  function mystery2(multiplier){
-    multiplier*= input; //multiplier = 6 * 5 = 30
+  function mystery2(multiplier) {
+    multiplier *= input; //multiplier = 6 * 5 = 30
 
     return secret * multiplier; // 5*30 = 150
   }
@@ -13,8 +13,8 @@ function mystery(input){
   return mystery2;
 }
 
-function mystery3(param){
-  function mystery4(bonus){
+function mystery3(param) {
+  function mystery4(bonus) {
     return param(6) + bonus; //returned value of mystery2 i.e. 150 + 2 = 152
   }
   return mystery4;

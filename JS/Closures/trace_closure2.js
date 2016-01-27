@@ -1,9 +1,10 @@
 //Trace the closure and find the value of the result
 
-function mystery(input){
+function mystery(input) {
   var secret = 6;
-  function mystery2(multiplier){
-    multiplier*= input; // multiplier = 2*5 = 10
+
+  function mystery2(multiplier) {
+    multiplier *= input; // multiplier = 2*5 = 10
 
     return secret * multiplier; // 6* 10 = 60
   }
