@@ -4,7 +4,7 @@ function warningMaker(obstacle) {
   return function(number, location) {
     count++;
     var list = "";
-    
+
     zones.push([location, number]);
     for (var i = 0; i < zones.length; i++) {
 
