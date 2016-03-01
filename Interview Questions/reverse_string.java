@@ -6,6 +6,5 @@ public static String reverseString(String str) {
     for (int i = (length - 1); i >= 0; i--){
         dest.append(sb.charAt(i));
     }
-
     return sb.toString();
 }
